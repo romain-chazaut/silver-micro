@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_cJD3gTD_u50.woff2') format('woff2');
+}
+
+:root {
+  font-family: 'Montserrat', sans-serif;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+}
