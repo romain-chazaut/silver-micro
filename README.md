@@ -5,7 +5,7 @@
 Pour cloner ce projet, utilisez la commande suivante :
 
 ```
-git clone <lien-du-projet>
+git clone https://github.com/romain-chazaut/silver-micro.git
 ```
 
 ## Configuration
