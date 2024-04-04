@@ -43,8 +43,11 @@ function App() {
                 }),
             });
 
+            if (response.ok) {
+                event.target.reset(); // Réinitialise les champs du formulaire à leur valeur initiale (vide)
+            }
             const data = await response.json();
-            console.log(data);
+            alert(data.message);
         } catch (error) {
             console.error("Erreur lors de l'inscription :", error);
         }
