@@ -59,6 +59,7 @@ app.post('/login', (request, response) => {
 
     const sql = "SELECT * FROM `user` WHERE email = ? AND password = ?";
 
+
     db.query(sql, [email, password], (error, data) => {
         if (error) {
             return response.json(error);

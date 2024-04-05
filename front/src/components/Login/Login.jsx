@@ -11,24 +11,12 @@ function Login() {
         const passwordConfirm = event.target.elements.passwordConfirm.value;
     
         const role = ['USER']; // Définir le rôle par défaut
-    
+        
         const today = new Date();
         const created_at = today.toISOString().split('T')[0];
-
-    
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        if (!passwordRegex.test(password)) {
-            alert('Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.');
-            return;
-        }
-    
-        if (password !== passwordConfirm) {
-            alert('Les mots de passe ne correspondent pas');
-            return;
-        }
     
         try {
-            const response = await fetch('http://localhost:3000/register', {
+            const response = await fetch('http://localhost:3000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +32,7 @@ function Login() {
             });
 
             if (response.ok) {
-                event.target.reset(); // Réinitialise les champs du formulaire à leur valeur initiale (vide)
+                event.target.reset();
             }
             const data = await response.json();
             alert(data.message);
@@ -60,16 +48,6 @@ function Login() {
 
             <form onSubmit={handleSubmitSend}>
                 <div>
-                    <label htmlFor="firstname">Firstname</label>
-                    <input type="text" id="firstname" name="firstname" />
-                </div>
-
-                <div>
-                    <label htmlFor="lastname">Lastname</label>
-                    <input type="text" id="lastname" name="lastname" />
-                </div>
-
-                <div>
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" name="email" />
                 </div>
@@ -79,12 +57,7 @@ function Login() {
                     <input type="password" id="password" name="password" />
                 </div>
 
-                <div>
-                    <label htmlFor="password-confirm">Password confirmation</label>
-                    <input type="password" id="passwordConfirm" name="password-confirm" />
-                </div>
-
-                <button type="submit">Register</button>
+                <button type="submit">Login</button>
             </form>
         </div>
     )
