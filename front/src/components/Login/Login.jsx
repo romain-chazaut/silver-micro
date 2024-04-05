@@ -1,6 +1,6 @@
-import '../../assets/css/register.css'
+import '../../assets/css/login.css'
 
-function Register() {
+function Login() {
     const handleSubmitSend = async (event) => {
         event.preventDefault();
     
@@ -90,4 +90,4 @@ function Register() {
     )
 }
 
-export default Register
+export default Login

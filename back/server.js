@@ -4,8 +4,8 @@ const mysql = require('mysql')
 const cors = require('cors')
 
 // Création du serveur
-const app = express()
-app.use(cors())
+const app = express();
+app.use(cors());
 app.use(express.json());
 
 const port = process.env.PORT || 3000;
@@ -50,6 +50,24 @@ app.post('/register', (request, response) => {
             return response.json(error);
         } else {
             return response.json({ message: 'Utilisateur enregistré avec succès' });
+        }
+    });
+});
+
+app.post('/login', (request, response) => {
+    const { email, password } = request.body;
+
+    const sql = "SELECT * FROM `user` WHERE email = ? AND password = ?";
+
+    db.query(sql, [email, password], (error, data) => {
+        if (error) {
+            return response.json(error);
+        } else {
+            if (data.length > 0) {
+                return response.json(data[0]);
+            } else {
+                return response.json({ message: 'Utilisateur non trouvé' });
+            }
         }
     });
 });
