@@ -2,7 +2,9 @@ export default function ProfilePage() {
     
     return (
         <>
-            <h1>Update your profile</h1>
+            <div id="profile-page">
+                <h1>Update your profile</h1>
+            </div>
         </>
     )
 }

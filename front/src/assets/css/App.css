@@ -1,20 +1,150 @@
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 400;
-  src: url('https://fonts.gstatic.com/s/montserrat/v15/JTURjIg1_i6t8kCHKm45_cJD3gTD_u50.woff2') format('woff2');
+@import url('https://fonts.googleapis.com/css2?family=K2D:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root, #root {
+  font-family: "Work Sans", sans-serif;
+  color: white;
+  background-color: #2E2E2E;
+  width: auto;
 }
 
-:root {
-  font-family: 'Montserrat', sans-serif;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+#wrapper {
+  padding: 40px;
+  margin: 0 auto;
+  width: auto;
+  background-color: #2E2E2E;
 }
 
 h1 {
+  font-family: "K2D", sans-serif;
   color: white;
 }
 
+
+/* NAVBAR */
+
+#navbar {
+  background-color: #2E2E2E;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #555257;
+  width: auto;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+#navbar a {
+  color: white;
+  text-decoration: none;
+}
+
+
+/* CONNEXION PAGES */
+
+.header-connect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-connect img {
+  width: 50%;
+}
+
+.header-connect p {
+  text-align: center;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.connect-form, form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.connect-form label {
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.connect-form input::placeholder {
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 14px;
+  color: white;
+  padding: 20px;
+  background-color: #2E2E2E;
+}
+
+.connect-form input {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 8px;
+  height: 40px;
+  width: 250px;
+}
+
+.connect-form button {
+  width: 255px;
+  height: 32px;
+  border: transparent;
+  border-radius: 8px;
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 14px;
+  color: #242424;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+}
+
+.connect-question {
+  display: flex;
+  flex-direction: column;
+   align-items: center;
+   margin-top: 30px;
+}
+
+.connect-question p, a {
+  font-size: 13px;
+  color: white;
+}
+
+
+/* HOME PAGE */
+
+.connect-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.connect-buttons a {
+  border: transparent;
+  border-radius: 8px;
+  text-transform: lowercase;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 13px;
+  color: #2E2E2E;
+  background-color: white;
+  padding: 7px 39px;
+  text-align: center;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 500;
+}
 
 /* ERROR PAGE */
 
@@ -23,6 +153,11 @@ h1 {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  height: 50vh;
   margin: 0;
+}
+
+#error-page a {
+  color: white;
+  margin-top: 30px;
 }

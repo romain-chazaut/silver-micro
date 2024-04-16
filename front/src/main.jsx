@@ -5,31 +5,49 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import './assets/css/App.css';
+
 import LoginPage from "./routes/login";
+import RegisterPage from "./routes/register";
 import HomePage from "./routes/home";
 import SearchPage from "./routes/search";
 import BookPage from "./routes/book";
 import ProfilePage from "./routes/profile";
+import ErrorPage from "./routes/error";
+import NavBar from "./routes/NavBar";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginPage />,
+    element: (
+      <>
+        <NavBar />
+      </>
+    ),
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: "home",
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/register",
+        element: <RegisterPage />,
+      },
+      {
+        path: "/home",
         element: <HomePage />,
       },
       {
-        path: "search",
+        path: "/search",
         element: <SearchPage />,
       },
       {
-        path: "book",
+        path: "/book",
         element: <BookPage />,
       },
       {
-        path: "profile",
+        path: "/profile",
         element: <ProfilePage />,
       },
     ],

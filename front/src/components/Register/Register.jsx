@@ -55,37 +55,34 @@ function Register() {
     
     
     return (
-        <div>
+        <div className='connect-form'>
             <h1>Register</h1>
 
             <form onSubmit={handleSubmitSend}>
-                <div>
-                    <label htmlFor="firstname">Firstname</label>
-                    <input type="text" id="firstname" name="firstname" />
-                </div>
+                
+                {/* <label htmlFor="firstname">Firstname</label> */}
+                <input type="text" id="firstname" name="firstname" placeholder='firstname' />
 
-                <div>
-                    <label htmlFor="lastname">Lastname</label>
-                    <input type="text" id="lastname" name="lastname" />
-                </div>
+                {/* <label htmlFor="lastname">Lastname</label> */}
+                <input type="text" id="lastname" name="lastname" placeholder='lastname' />
 
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" />
-                </div>
+                {/* <label htmlFor="email">Email</label> */}
+                <input type="email" id="email" name="email" placeholder='e-mail'/>
 
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" />
-                </div>
+                {/* <label htmlFor="password">Password</label> */}
+                <input type="password" id="password" name="password" placeholder='password' />
 
-                <div>
-                    <label htmlFor="password-confirm">Password confirmation</label>
-                    <input type="password" id="passwordConfirm" name="password-confirm" />
-                </div>
+                {/* <label htmlFor="password-confirm">Password confirmation</label> */}
+                <input type="password" id="passwordConfirm" name="password-confirm" placeholder='confirm password' />
 
-                <button type="submit">Register</button>
+                <button type="submit">Sign up</button>
             </form>
+
+            <div className='connect-question'>
+                <p>You already have an account ?</p>
+                <a href="/login">Sign in</a>
+            </div>
+
         </div>
     )
 }
