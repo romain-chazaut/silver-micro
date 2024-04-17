@@ -4,45 +4,86 @@
 :root, #root {
   font-family: "Work Sans", sans-serif;
   color: white;
-  background-color: #2E2E2E;
+  background-color: var(--green-color);
   width: auto;
+  --green-color: #08492E;
+  --yellow-color: #FABB3E;
+  --grey-color: #9A9A9A;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 #wrapper {
-  padding: 40px;
+  padding: 15px 40px;
   margin: 0 auto;
   width: auto;
-  background-color: #2E2E2E;
+  background-color: var(--green-color);
 }
 
 h1 {
   font-family: "K2D", sans-serif;
-  color: white;
+  font-size: 30px;
+  color: var(--yellow-color);
+}
+
+h2 {
+  font-family: "K2D", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--yellow-color);
+}
+
+/* HEADER PAGES */
+
+.header-pages {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.header-pages img {
+  width: 10%;
 }
 
 
 /* NAVBAR */
 
 #navbar {
-  background-color: #2E2E2E;
+  background-color: var(--yellow-color);
   display: flex;
   flex-direction: row;
-  align-items: center;
-  border-bottom: 1px solid #555257;
-  width: auto;
-}
-
-ul {
-  list-style-type: none;
-  display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 40px;
+  padding: 18px 20px 5px 20px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: auto;
+  height: 7%;
+  position: absolute;
+  bottom: 0;
 }
 
 #navbar a {
-  color: white;
+  color: var(--grey-color);
   text-decoration: none;
+}
+
+.nav-menu a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: 500;
+}
+
+.nav-menu img {
+  width: 30%;
 }
 
 
@@ -52,10 +93,11 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 40px;
 }
 
 .header-connect img {
-  width: 50%;
+  width: 40%;
 }
 
 .header-connect p {
@@ -63,6 +105,7 @@ ul {
   font-weight: 300;
   font-style: italic;
   font-size: 14px;
+  color: var(--yellow-color);
 }
 
 .connect-form, form {
@@ -82,14 +125,14 @@ ul {
   text-transform: lowercase;
   font-weight: 400;
   font-size: 14px;
-  color: white;
+  color: var(--yellow-color);
   padding: 20px;
-  background-color: #2E2E2E;
+  background-color: var(--green-color);
 }
 
 .connect-form input {
   background-color: transparent;
-  border: 1px solid white;
+  border: 1px solid var(--yellow-color);
   border-radius: 8px;
   height: 40px;
   width: 250px;
@@ -103,7 +146,8 @@ ul {
   text-transform: lowercase;
   font-weight: 400;
   font-size: 14px;
-  color: #242424;
+  color: var(--green-color);
+  background-color: var(--yellow-color);
   font-family: "Work Sans", sans-serif;
   font-weight: 500;
 }
@@ -117,7 +161,7 @@ ul {
 
 .connect-question p, a {
   font-size: 13px;
-  color: white;
+  color: var(--yellow-color);
 }
 
 
@@ -125,25 +169,28 @@ ul {
 
 .connect-buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
 }
 
 .connect-buttons a {
-  border: transparent;
-  border-radius: 8px;
   text-transform: lowercase;
   text-decoration: none;
   font-weight: 400;
   font-size: 13px;
-  color: #2E2E2E;
-  background-color: white;
-  padding: 7px 39px;
+  color: var(--green-color);
   text-align: center;
   font-family: "Work Sans", sans-serif;
   font-weight: 500;
+  background-color: var(--yellow-color);
+  border: transparent;
+  border-radius: 8px;
+  padding: 9px 100px;
+}
+
+#sigin {
+  margin-bottom: 20px;
 }
 
 /* ERROR PAGE */
@@ -158,6 +205,6 @@ ul {
 }
 
 #error-page a {
-  color: white;
+  color: var(--yellow-color);
   margin-top: 30px;
 }

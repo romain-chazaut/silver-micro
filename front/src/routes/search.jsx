@@ -2,7 +2,10 @@ export default function SearchPage() {
     
     return (
         <>
-            <h1>Explore</h1>
+            <div className="header-pages">
+                <h1>Explore</h1>
+                <img src="./src/assets/img/logo.svg" alt="logo silver micro" />
+            </div>
         </>
     )
 }
