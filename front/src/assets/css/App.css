@@ -9,6 +9,9 @@
   --green-color: #08492E;
   --yellow-color: #FABB3E;
   --grey-color: #9A9A9A;
+  --white-color: white;
+  --title-font: "K2D", sans-serif;
+  --content-font: "Work Sans", sans-serif;
 }
 
 body {
@@ -24,13 +27,13 @@ body {
 }
 
 h1 {
-  font-family: "K2D", sans-serif;
+  font-family: var(--title-font);
   font-size: 30px;
   color: var(--yellow-color);
 }
 
 h2 {
-  font-family: "K2D", sans-serif;
+  font-family: var(--title-font);
   font-size: 20px;
   font-weight: 300;
   color: var(--yellow-color);
@@ -69,7 +72,7 @@ h2 {
 }
 
 #navbar a {
-  color: var(--grey-color);
+  color: var(--white-color);
   text-decoration: none;
 }
 
@@ -126,7 +129,6 @@ h2 {
   font-weight: 400;
   font-size: 14px;
   color: var(--yellow-color);
-  padding: 20px;
   background-color: var(--green-color);
 }
 
@@ -136,19 +138,21 @@ h2 {
   border-radius: 8px;
   height: 40px;
   width: 250px;
+  padding: 0 10px;
+  color: var(--yellow-color);
 }
 
 .connect-form button {
-  width: 255px;
+  width: 270px;
   height: 32px;
   border: transparent;
   border-radius: 8px;
   text-transform: lowercase;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--green-color);
   background-color: var(--yellow-color);
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--content-font);
   font-weight: 500;
 }
 
@@ -178,10 +182,10 @@ h2 {
   text-transform: lowercase;
   text-decoration: none;
   font-weight: 400;
-  font-size: 13px;
+  font-size: 16px;
   color: var(--green-color);
   text-align: center;
-  font-family: "Work Sans", sans-serif;
+  font-family: var(--content-font);
   font-weight: 500;
   background-color: var(--yellow-color);
   border: transparent;
@@ -191,6 +195,58 @@ h2 {
 
 #sigin {
   margin-bottom: 20px;
+}
+
+
+/* SEARCH PAGE */
+
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-wrapper input {
+  background-color: transparent;
+  border: 1px solid var(--yellow-color);
+  border-radius: 8px;
+  height: 40px;
+  width: 350px;
+  padding: 0 10px;
+  color: var(--yellow-color);
+}
+
+.search-wrapper input::placeholder {
+  text-transform: lowercase;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--yellow-color);
+  background-color: var(--green-color);
+}
+
+.search-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.search-buttons button {
+  padding: 10px 20px;
+  border: 2px solid var(--yellow-color);
+  border-radius: 25px;
+  width: 130px;
+  font-family: var(--title-font);
+  font-size: 18px;
+}
+
+#book-button {
+  background-color: var(--yellow-color);
+  color: var(--green-color);
+}
+
+#view-button {
+  background-color: transparent;
+  color: var(--yellow-color);
 }
 
 /* ERROR PAGE */
