@@ -1,6 +1,6 @@
 require('dotenv').config();
 const express = require('express')
-const mysql = require('mysql')
+const mysql = require('mysql2') // Romain et Maelle utilisent mysql2 et Augustin mysql tout court
 const cors = require('cors')
 
 // Création du serveur
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
     res.send('Bonjour Monde avec Express!');
 });
 
-app.get('/tables', (request, response) => {
+app.get('/tables', (_request, response) => {
     const sql = "SELECT * from restaurant_table"
 
     db.query(sql, (error, data) => {
@@ -47,9 +47,9 @@ app.post('/register', (request, response) => {
 
     db.query(sql, [firstname, lastname, email, password, JSON.stringify(role), created_at], (error, data) => {
         if (error) {
-            return response.json(error);
+             return response.json(error);
         } else {
-            return response.json({ message: 'Utilisateur enregistré avec succès' });
+             return response.json({ message: 'Utilisateur enregistré avec succès' });
         }
     });
 });
