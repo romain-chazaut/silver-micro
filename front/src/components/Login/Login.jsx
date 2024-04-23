@@ -23,7 +23,7 @@ function Login() {
     
         try {
             const response = await fetch('http://localhost:3000/login', {
-                method: 'POST', // Changement ici
+                method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -34,14 +34,20 @@ function Login() {
             });
         
             if (response.ok) {
-                event.target.reset(); // Réinitialise les champs du formulaire à leur valeur initiale (vide)
+                const data = await response.json();
+                if (data.message) {
+                    alert(data.message);
+                } else {
+                    alert('Message non disponible');
+                }
+            } else {
+                alert('Échec de la connexion au serveur');
             }
-            const data = await response.json();
-            alert(data.message);
-        } catch (error) {
-            console.error("Erreur lors de la connexion:", error);
         }
-    };
+        catch (error) {
+            console.error("Erreur lors de la connexion :", error);
+        }
+    }
     
     
     return (
