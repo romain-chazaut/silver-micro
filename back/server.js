@@ -45,7 +45,7 @@ app.post('/register', (request, response) => {
 
     const sql = "INSERT INTO `user`(`firstname`, `lastname`, `email`, `password`, `role`, `created_at`) VALUES (?, ?, ?, ?, ?, ?)";
 
-    db.query(sql, [firstname, lastname, email, password, JSON.stringify(role), created_at], (error, data) => {
+    db.query(sql, [firstname, lastname, email, password, JSON.stringify(role), created_at], (error) => {
         if (error) {
              return response.json(error);
         } else {
