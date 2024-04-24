@@ -71,3 +71,17 @@ app.post('/login', (request, response) => {
         }
     });
 });
+
+app.post('/update', (request, response) => {
+    const { firstname, lastname, email, password } = request.body;
+
+    const sql = "UPDATE user SET firstname = ?, lastname = ?, email = ?, password = ? WHERE id =?";
+
+    db.query(sql, [firstname, lastname, email, password], (error, data) => {
+        if (error) {
+             return response.json(error);
+        } else {
+             return response.json({ message: 'Utilisateur mis à jour avec succès' });
+        }
+    });
+});

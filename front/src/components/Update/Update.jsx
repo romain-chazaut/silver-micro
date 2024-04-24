@@ -8,25 +8,13 @@ function Update() {
         const password = event.target.elements.password.value;
         const passwordConfirm = event.target.elements.passwordConfirm.value;
     
-        const role = ['USER']; // Définir le rôle par défaut
-    
-        const today = new Date();
-        const created_at = today.toISOString().split('T')[0];
-
-    
-        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-        if (!passwordRegex.test(password)) {
-            alert('Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.');
-            return;
-        }
-    
         if (password !== passwordConfirm) {
             alert('Les mots de passe ne correspondent pas');
             return;
         }
     
         try {
-            const response = await fetch('http://localhost:3000/register', {
+            const response = await fetch('http://localhost:3000/update', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,8 +24,6 @@ function Update() {
                     lastname: lastname,
                     email: email,
                     password: password,
-                    role: role,
-                    created_at: created_at,
                 }),
             });
 
@@ -47,7 +33,7 @@ function Update() {
             const data = await response.json();
             alert(data.message);
         } catch (error) {
-            console.error("Erreur lors de l'inscription :", error);
+            console.error("Erreur lors de la mise à jour :", error);
         }
     };
 

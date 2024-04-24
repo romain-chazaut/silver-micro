@@ -14,7 +14,7 @@ import SearchPage from "./routes/search";
 import BookPage from "./routes/book";
 import ProfilePage from "./routes/profile";
 import ErrorPage from "./routes/error";
-import NavBar from "./routes/navBar";
+import NavBar from "./routes/NavBar";
 
 const router = createBrowserRouter([
   {
