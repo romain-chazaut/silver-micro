@@ -1,4 +1,4 @@
-import '../../assets/css/login.css'
+// import '../../assets/css/login.css';
 
 function Login() {
     const handleSubmitSend = async (event) => {
@@ -14,7 +14,6 @@ function Login() {
     
         const today = new Date();
         const created_at = today.toISOString().split('T')[0];
-
     
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         if (!passwordRegex.test(password)) {

@@ -1,4 +1,5 @@
 import Book from "../components/Book/Book";
+import "../assets/css/App.css";
 
 export default function BookPage() {
     

@@ -1,6 +1,3 @@
-// function generateDates()
-// function generateHours()
-// function calculateAvailabalities()
 import { useState } from "react";
 
 export default function Book() {
@@ -8,8 +5,6 @@ export default function Book() {
     const currentDate = new Date();
     currentDate.setHours(12);
     currentDate.setMinutes(0);
-
-    // const formattedDate = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()} ${currentDate.getHours()} h`;
     
     const newDate = new Date(currentDate); // Créer une nouvelle instance de date
     console.log(newDate);
@@ -17,7 +12,7 @@ export default function Book() {
 
     console.log(newDate);
     
-    // Au fetch on recois data
+    // Au fetch on recoit data
     // new date(data.dateReservation)
 
     // const displayDate = currentDate.toLocaleString();
@@ -25,7 +20,7 @@ export default function Book() {
     
     function DateRender() {
         let agenda = [];
-        // const displayDate = currentDate.toLocaleString(); // 12h 
+        
         let date1 = new Date(currentDate);
         
         for(let i = 0; i < placesAvailable; i++) {
@@ -42,7 +37,7 @@ export default function Book() {
         );
 
         return(
-            <div id="tonpere">
+            <div id="availabilities">
                 {list}
             </div>
         )
