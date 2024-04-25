@@ -253,18 +253,20 @@ h2 {
 /* SEARCH PAGE */
 
 #availabilities {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-column-gap: 7px;
+  grid-row-gap: 10px;
 }
 
 #availabilities button {
   padding: 10px 5px;
   border: 2px solid var(--yellow-color);
-  border-radius: 15px;
-  width: 200px;
+  border-radius: 10px;
+  width: 150px;
   font-family: var(--title-font);
-  font-size: 18px;
+  font-size: 14px;
   background-color: transparent;
   color: var(--yellow-color);
 }

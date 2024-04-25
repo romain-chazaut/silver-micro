@@ -14,7 +14,7 @@ export default function Book() {
     
     // Au fetch on recoit data
     // new date(data.dateReservation)
-
+    
     // const displayDate = currentDate.toLocaleString();
 
     
