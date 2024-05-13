@@ -20,7 +20,7 @@ body {
 }
 
 #wrapper {
-  padding: 15px 40px;
+  padding: 15px 40px 70px 40px;
   margin: 0 auto;
   width: auto;
   background-color: var(--green-color);
@@ -67,7 +67,7 @@ h2 {
   border-top-right-radius: 10px;
   width: auto;
   height: 7%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 
