@@ -28,13 +28,14 @@ app.get('/', (req, res) => {
     res.send('Bonjour Monde avec Express!');
 });
 
-app.get('/tables', (_request, response) => {
-    const sql = "SELECT * from restaurant_table"
+app.get('/search', (_request, response) => {
+    const sql = "SELECT * from restaurant";
 
     db.query(sql, (error, data) => {
         if (error) {
             return response.json(error)
         } else {
+            console.log(response);
             return response.json(data)
         }
     })
