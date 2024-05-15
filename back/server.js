@@ -54,9 +54,9 @@ app.post('/register', (request, response) => {
 
     db.query(sql, [firstname, lastname, email, password, JSON.stringify(role), created_at], (error, data) => {
         if (error) {
-             return response.json(error);
+            return response.json(error);
         } else {
-             return response.json({ message: 'Utilisateur enregistré avec succès' });
+            return response.json({ message: 'Utilisateur enregistré avec succès' });
         }
     });
 });
@@ -82,9 +82,9 @@ app.post('/update', (request, response) => {
 
     db.query(sql, [firstname, lastname, email, password], (error, data) => {
         if (error) {
-             return response.json(error);
+            return response.json(error);
         } else {
-             return response.json({ message: 'Utilisateur mis à jour avec succès' });
+            return response.json({ message: 'Utilisateur mis à jour avec succès' });
         }
     });
 });

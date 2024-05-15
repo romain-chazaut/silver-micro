@@ -32,10 +32,8 @@ function Login() {
             <h1>Login</h1>
 
             <form onSubmit={handleSubmitSend}>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" />
-                </div>
+
+                <input type="email" id="email" name="email" placeholder="email"/>
 
                 {/* <label htmlFor="password">Password</label> */}
                 <input type="password" id="password" name="password" placeholder='password' />
