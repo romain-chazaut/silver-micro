@@ -59,16 +59,11 @@ app.post('/login', (request, response) => {
 
     const sql = "SELECT * FROM `user` WHERE email = ? AND password = ?";
 
-
     db.query(sql, [email, password], (error, data) => {
         if (error) {
             return response.json(error);
         } else {
-            if (data.length > 0) {
-                return response.json(data[0]);
-            } else {
-                return response.json({ message: 'Utilisateur non trouvé' });
-            }
+            return response.json({ message: 'Connecté' });
         }
     });
 });

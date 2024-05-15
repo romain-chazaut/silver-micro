@@ -4,16 +4,8 @@ function Login() {
     const handleSubmitSend = async (event) => {
         event.preventDefault();
     
-        const firstname = event.target.elements.firstname.value;
-        const lastname = event.target.elements.lastname.value;
         const email = event.target.elements.email.value;
         const password = event.target.elements.password.value;
-        const passwordConfirm = event.target.elements.passwordConfirm.value;
-    
-        const role = ['USER']; // Définir le rôle par défaut
-        
-        const today = new Date();
-        const created_at = today.toISOString().split('T')[0];
     
         try {
             const response = await fetch('http://localhost:3000/login', {
@@ -21,13 +13,9 @@ function Login() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ 
-                    firstname: firstname,
-                    lastname: lastname,
+                body: JSON.stringify({
                     email: email,
                     password: password,
-                    role: role,
-                    created_at: created_at,
                 }),
             });
 
@@ -40,7 +28,6 @@ function Login() {
             console.error("Erreur lors de l'inscription :", error);
         }
     };
-    
     
     return (
         <div>
