@@ -11,9 +11,10 @@ function Login() {
         const passwordConfirm = event.target.elements.passwordConfirm.value;
     
         const role = ['USER']; // Définir le rôle par défaut
-    
+        
         const today = new Date();
         const created_at = today.toISOString().split('T')[0];
+
     
         const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
         if (!passwordRegex.test(password)) {
@@ -43,7 +44,7 @@ function Login() {
             });
 
             if (response.ok) {
-                event.target.reset(); // Réinitialise les champs du formulaire à leur valeur initiale (vide)
+                event.target.reset();
             }
             const data = await response.json();
             alert(data.message);
@@ -58,23 +59,30 @@ function Login() {
             <h1>Login</h1>
 
             <form onSubmit={handleSubmitSend}>
-                
-                {/* <label htmlFor="firstname">Firstname</label> */}
-                <input type="text" id="firstname" name="firstname" placeholder='firstname' />
+                <div>
+                    <label htmlFor="firstname">Firstname</label>
+                    <input type="text" id="firstname" name="firstname" />
+                </div>
 
-                {/* <label htmlFor="lastname">Lastname</label> */}
-                <input type="text" id="lastname" name="lastname" placeholder='lastname' />
+                <div>
+                    <label htmlFor="lastname">Lastname</label>
+                    <input type="text" id="lastname" name="lastname" />
+                </div>
 
-                {/* <label htmlFor="email">Email</label> */}
-                <input type="email" id="email" name="email" placeholder='e-mail'/>
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" />
+                </div>
 
                 {/* <label htmlFor="password">Password</label> */}
                 <input type="password" id="password" name="password" placeholder='password' />
 
-                {/* <label htmlFor="password-confirm">Password confirmation</label> */}
-                <input type="password" id="passwordConfirm" name="password-confirm" placeholder='confirm password' />
+                <div>
+                    <label htmlFor="password-confirm">Password confirmation</label>
+                    <input type="password" id="passwordConfirm" name="password-confirm" />
+                </div>
 
-                <button type="submit">Sign in</button>
+                <button type="submit">Register</button>
             </form>
 
             <div className='connect-question'>
