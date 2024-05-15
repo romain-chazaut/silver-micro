@@ -1,5 +1,3 @@
-import '../../assets/css/register.css'
-
 function Register() {
     const handleSubmitSend = async (event) => {
         event.preventDefault();

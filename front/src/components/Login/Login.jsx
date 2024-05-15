@@ -1,5 +1,3 @@
-import '../../assets/css/login.css'
-
 function Login() {
     const handleSubmitSend = async (event) => {
         event.preventDefault();
