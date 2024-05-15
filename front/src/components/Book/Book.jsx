@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function Book() {
     const [placesAvailable, setPlacesAvailable] = useState(20);
     const currentDate = new Date();
-    currentDate.setHours(11);
+    currentDate.setHours(12);
     currentDate.setMinutes(0);
     
     const newDate = new Date(currentDate); // Créer une nouvelle instance de date
@@ -31,7 +31,8 @@ export default function Book() {
                 date1.setMinutes(date1.getMinutes());
             }
             date1.setMinutes(date1.getMinutes());
-            const formattedDate = `${date1.getDate()}-${date1.getMonth() + 1}-${date1.getFullYear()} ${date1.getHours()} h-${date1.getMinutes()}`;
+            const formattedDate = `${String(date1.getDate()).padStart(2, '0')}-${String(date1.getMonth() + 1).padStart(2, '0')}-${String(date1.getFullYear()).slice(-2)}, ${date1.getHours()}h${String(date1.getMinutes()).padStart(2, '0')}`;
+
             // si ici je fais 12h + 30 min 
             agenda.push(formattedDate);
 

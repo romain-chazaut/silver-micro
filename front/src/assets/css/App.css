@@ -67,7 +67,7 @@ h2 {
   border-top-right-radius: 10px;
   width: auto;
   height: 7%;
-  position: absolute;
+  position: fixed;
   bottom: 0;
 }
 
@@ -269,6 +269,23 @@ h2 {
   font-size: 14px;
   background-color: transparent;
   color: var(--yellow-color);
+}
+
+.restaurants {
+  margin-top: 70px;
+}
+
+.restaurants img {
+  width: 90%;
+  border-radius: 15px;
+}
+
+.restaurants h4 {
+  font-size: 25px;
+}
+
+.restaurants ul {
+  list-style-type: none;
 }
 
 /* ERROR PAGE */
