@@ -1,4 +1,5 @@
 import Search from "../components/Search/Search";
+import "../assets/css/App.css";
 
 export default function SearchPage() {
     
