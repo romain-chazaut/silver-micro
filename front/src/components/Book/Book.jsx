@@ -81,33 +81,23 @@ export default function Book() {
             <div
                 className={`modal ${modalIsOpen ? 'show' : ''}`}
                 onClick={closeModal}
-                style={modalStyles.modal}
             >
                 <div
                     className="modal-content"
                     onClick={e => e.stopPropagation()}
-                    style={modalStyles.modalContent}
                 >
-                <div>
+                    <div>
+                        <h2>Book your slot</h2>
+                    </div>
+                    <div className="slot-form">
+                        <input type="text" id="name" placeholder="name" />
 
-                    <h2>Reserve Slot</h2>
-                </div>
-                <div>
-
-                    <label>
-                        Name:
-                        <input type="text" id="name" />
-                    </label>
-                    <label>
-                        Number of People:
-                        <input type="number" id="people" min="1" max={placesAvailable} />
-                    </label>
-                </div>
-                <div>
-
-                    <button onClick={handleReservationModal}>Reserve</button>
-                    <button onClick={closeModal}>Close</button>
-                </div>
+                        <input type="number" id="people" min="1" max={placesAvailable} placeholder="number of people" />
+                        <div className="slot-buttons">
+                            <button onClick={handleReservationModal} id="reserve-button">Reserve</button>
+                            <button onClick={closeModal} id="close-button">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         );
@@ -130,7 +120,6 @@ export default function Book() {
 
 const modalStyles = {
     modal: {
-
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -145,15 +134,13 @@ const modalStyles = {
         transition: 'visibility 0s, opacity 0.5s linear',
     },
     modalContent: {
-        gap: '5px',
+        gap: '20px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
         backgroundColor: 'white',
-        height: '40vh',
-        padding: '20px',
+        padding: '1Opx 40px 30px 40px',
         borderRadius: '5px',
         textAlign: 'center',
-        margintop: '10px',
     },
 };

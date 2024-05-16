@@ -21,30 +21,29 @@ let images = {
 
 function Search() {
     const [restaurants, setRestaurants] = useState([]);
+    const [searchName, setsearchName] = useState("");
 
-    useEffect(() => {
-        fetch('http://localhost:3000/search')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erreur lors de la récupération des restaurants');
-                }
-                return response.json();
-            })
-            .then(data => {
-                setRestaurants(data);
-            })
-            .catch(error => {
-                console.error('Erreur lors de la récupération des restaurants:', error);
-            });
-    }, []);
+    useEffect(()=>{
+        async function getAutocompletion() {
+            const request = fetch(`http://localhost:3000/search?name=${searchName}`);
+            const response = await request.json()
+            console.log(response, "response");
+        }
+        console.log(searchName,'searchName');
+
+        if (searchName != '') {
+           getAutocompletion(); 
+        }
+        
+    }, [searchName])
 
     return (
         <>
             <div className="search-wrapper">
                 <h2>What are you looking for?</h2>
                 <form action="">
-                    <input type="text" id="search" name="search" placeholder='Search...' />
-                    <div className="results"></div>
+                    <input onChange={(e)=>{setsearchName(e.target.value)}} type="text" id="search" name="search" placeholder='Search...' />
+                    <div id="results"></div>
                     <div className="search-buttons">
                         <button id="book-button" type="submit">Book</button>
                         <button id="view-button" type="submit">View more</button>

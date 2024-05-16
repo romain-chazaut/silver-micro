@@ -34,13 +34,18 @@ const db = mysql.createConnection({
     port: process.env.DB_PORT,
 })
 
-app.get('/search', (_request, response) => {
-    const sql = "SELECT * from restaurant";
+app.get('/search', (request, response) => {
+    // console.log(request.query, "request");
+    // console.log(request, "request");
+    const searchName = `%${request.query.name}%`;
+    const sql = "SELECT * FROM `restaurant` WHERE name LIKE ?";
 
-    db.query(sql, (error, data) => {
+    db.query(sql, [searchName], (error, data) => {
         if (error) {
+            console.log('if')
             return response.json(error)
         } else {
+            console.log('else')
             console.log(response);
             return response.json(data)
         }
