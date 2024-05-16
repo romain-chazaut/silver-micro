@@ -21,28 +21,39 @@ let images = {
 
 function Search() {
     const [restaurants, setRestaurants] = useState([]);
-    const [searchName, setsearchName] = useState("");
+    const [searchName, setSearchName] = useState("");
 
-    useEffect(()=>{
+    useEffect(() => {
         async function getAutocompletion() {
-            const request = fetch(`http://localhost:3000/search?name=${searchName}`);
-            const response = await request.json()
-            console.log(response, "response");
+            try {
+                const response = await fetch(`http://localhost:3000/search?name=${searchName}`);
+                const data = await response.json();
+                console.log(data, "response");
+                setRestaurants(data); // Met à jour les restaurants avec les données reçues
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
         }
-        console.log(searchName,'searchName');
 
-        if (searchName != '') {
-           getAutocompletion(); 
+        if (searchName !== '') {
+            getAutocompletion();
+        } else {
+            setRestaurants([]); // Réinitialise la liste des restaurants si le champ de recherche est vide
         }
-        
-    }, [searchName])
+    }, [searchName]);
 
     return (
         <>
             <div className="search-wrapper">
                 <h2>What are you looking for?</h2>
                 <form action="">
-                    <input onChange={(e)=>{setsearchName(e.target.value)}} type="text" id="search" name="search" placeholder='Search...' />
+                    <input 
+                        onChange={(e) => setSearchName(e.target.value)} 
+                        type="text" 
+                        id="search" 
+                        name="search" 
+                        placeholder='Search...' 
+                    />
                     <div id="results"></div>
                     <div className="search-buttons">
                         <button id="book-button" type="submit">Book</button>
@@ -57,7 +68,7 @@ function Search() {
                             <h4>{restaurant.name}</h4>
                             <p>Location: {restaurant.location}</p>
                             <p>Number of Places: {restaurant.nb_places}</p>
-                            {images != undefined &&
+                            {images[restaurant.image] &&
                                 <img src={images[restaurant.image]} alt={restaurant.name} />
                             }
                         </li>
