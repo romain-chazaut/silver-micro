@@ -20,7 +20,7 @@ let images = {
 }
 
 function Search() {
-    const [restaurants, setRestaurants] = useState([]);
+    // const [restaurants, setRestaurants] = useState([]);
     const [searchName, setsearchName] = useState("");
 
     useEffect(()=>{
