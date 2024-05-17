@@ -1,3 +1,6 @@
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+
 function Update() {
     const handleSubmitSend = async (event) => {
         event.preventDefault();
@@ -8,6 +11,16 @@ function Update() {
         const password = event.target.elements.password.value;
         const passwordConfirm = event.target.elements.passwordConfirm.value;
     
+        const today = new Date();
+        const updated_at = today.toISOString().split('T')[0];
+
+
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!passwordRegex.test(password)) {
+            alert('Le mot de passe doit contenir au moins 8 caractères, une lettre majuscule, une lettre minuscule, un chiffre et un caractère spécial.');
+            return;
+        }
+
         if (password !== passwordConfirm) {
             alert('Les mots de passe ne correspondent pas');
             return;
@@ -24,6 +37,7 @@ function Update() {
                     lastname: lastname,
                     email: email,
                     password: password,
+                    updated_at: updated_at
                 }),
             });
 
@@ -38,11 +52,8 @@ function Update() {
     };
 
     return (
-
         <div className='connect-form'>
-
             <h2>Edit your informations</h2>
-
             <form onSubmit={handleSubmitSend}>
                 
                 {/* <label htmlFor="firstname">Firstname</label> */}
@@ -62,9 +73,8 @@ function Update() {
 
                 <button type="submit">Update</button>
             </form>
-
         </div>
-    )
+    );
 }
 
 export default Update;
