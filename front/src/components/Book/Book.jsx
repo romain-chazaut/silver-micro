@@ -88,26 +88,22 @@ export default function Book() {
                     onClick={e => e.stopPropagation()}
                     style={modalStyles.modalContent}
                 >
-                <div>
+                    <div>
+                        <h2>Reserve Slot</h2>
+                    </div>
 
-                    <h2>Reserve Slot</h2>
-                </div>
-                <div>
+                    <div>
+                        <label htmlFor="name">Name :</label>
+                        <input type="text" id="name" name="name"/>
 
-                    <label>
-                        Name:
-                        <input type="text" id="name" />
-                    </label>
-                    <label>
-                        Number of People:
-                        <input type="number" id="people" min="1" max={placesAvailable} />
-                    </label>
-                </div>
-                <div>
+                        <label htmlFor="people">Number of People :</label>
+                        <input type="number" id="people" name="people" min="1" max={placesAvailable} />
+                    </div>
 
-                    <button onClick={handleReservationModal}>Reserve</button>
-                    <button onClick={closeModal}>Close</button>
-                </div>
+                    <div>
+                        <button onClick={handleReservationModal}>Reserve</button>
+                        <button onClick={closeModal}>Close</button>
+                    </div>
                 </div>
             </div>
         );

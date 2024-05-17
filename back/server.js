@@ -76,11 +76,11 @@ app.post('/login', (request, response) => {
 });
 
 app.post('/update', (request, response) => {
-    const { firstname, lastname, email, password } = request.body;
+    const { firstname, lastname, email, password, updated_at } = request.body;
 
-    const sql = "UPDATE user SET firstname = ?, lastname = ?, email = ?, password = ? WHERE id =?";
+    const sql = "UPDATE user SET firstname = ?, lastname = ?, email = ?, password = ?, updated_at = ? WHERE id =?";
 
-    db.query(sql, [firstname, lastname, email, password], (error, data) => {
+    db.query(sql, [firstname, lastname, email, password, updated_at], (error, data) => {
         if (error) {
             return response.json(error);
         } else {

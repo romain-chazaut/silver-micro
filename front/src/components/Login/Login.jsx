@@ -1,4 +1,9 @@
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
+
 function Login() {
+    const [loggedIn, setLoggedIn] = useState(false);
+
     const handleSubmitSend = async (event) => {
         event.preventDefault();
     
@@ -19,14 +24,20 @@ function Login() {
 
             if (response.ok) {
                 event.target.reset();
+                setLoggedIn(true);
+            } else {
+                const data = await response.json();
+                console.log(data.message);
             }
-            const data = await response.json();
-            alert(data.message);
         } catch (error) {
-            console.error("Erreur lors de l'inscription :", error);
+            console.error("Erreur lors de la connexion :", error);
         }
     };
-    
+
+    if (loggedIn) {
+        return <Navigate to="/search" />;
+    }
+
     return (
         <div className='connect-form'>
             <h1>Login</h1>
@@ -50,4 +61,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Login;
