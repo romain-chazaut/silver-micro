@@ -250,13 +250,12 @@ h2 {
 }
 
 
-/* SEARCH PAGE */
+/* BOOK PAGE */
 
 #availabilities {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(10, 1fr);
-  grid-column-gap: 7px;
   grid-row-gap: 10px;
 }
 
@@ -272,7 +271,7 @@ h2 {
 }
 
 .restaurants {
-  margin-top: 70px;
+  margin: 60px 0 60px;
 }
 
 .restaurants img {
@@ -280,16 +279,27 @@ h2 {
   border-radius: 15px;
 }
 
+.restaurants p {
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: 300;
+}
+
 .restaurants h4 {
   font-size: 25px;
+  margin: 0;
 }
 
 .restaurants ul {
   list-style-type: none;
 }
 
+.restaurants li {
+  margin-top: 40px;
+}
 
-/* BOOK PAGE */
+
+/* BOOK PAGE / MODAL */
 
 .slot-form {
   display: flex;
@@ -313,6 +323,7 @@ h2 {
   flex-direction: row;
   justify-content: center;
   gap: 10px;
+  margin-top: 15px;
 }
 
 .slot-buttons button {
@@ -331,8 +342,20 @@ h2 {
   color: var(--green-color);
 }
 
+li#reserved-slot {
+  list-style: none;
+  margin-top: 30px;
+  text-align: center;
+  background-color: var(--yellow-color);
+  color: var(--green-color);
+  border: 2px solid var(--yellow-color);
+  border-radius: 15px;
+  padding: 10px 0;
+}
+
 .modal.show.modal-content {
   padding: 0px 40px 40px 30px;
+  
 }
 
 .modal {
@@ -356,7 +379,7 @@ h2 {
   flex-direction: column;
   justify-content: space-between;
   background-color: white;
-  padding: 10px 40px 30px 40px;
+  padding: 5px 40px 30px 40px;
   border-radius: 5px;
   text-align: center;
 }

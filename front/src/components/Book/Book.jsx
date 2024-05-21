@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
 
 export default function Book() {
-    const [placesAvailable] = useState(20); // Nombre de créneaux disponibles
+    const [placesAvailable] = useState(12); // Nombre de créneaux disponibles
     const [reservations, setReservations] = useState([]); // Stocke les réservations
     const [alertMessage, setAlertMessage] = useState(""); // Message d'alerte pour l'utilisateur
     const [modalIsOpen, setModalIsOpen] = useState(false); // État du modal
     const [selectedSlot, setSelectedSlot] = useState(null); // Créneau sélectionné
 
-    function generateDates(baseDate, count, increment) {
-        const dates = [];
-        for (let i = 0; i < count; i++) {
-            const date = new Date(baseDate.getTime() + i * increment * 60000);
-            dates.push(`${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()} ${date.getHours()}h${date.getMinutes() < 10 ? '0' : ''}${date.getMinutes()}`);
-        }
-        return dates;
+    function generateDates() {
+        const slots = [];
+        const createSlots = (startHour, endHour) => {
+            const baseDate = new Date();
+            baseDate.setHours(startHour, 0, 0, 0);
+            while (baseDate.getHours() < endHour) {
+                slots.push(`${baseDate.getDate()}-${baseDate.getMonth() + 1}-${baseDate.getFullYear()} ${baseDate.getHours()}h${baseDate.getMinutes() < 10 ? '0' : ''}${baseDate.getMinutes()}`);
+                baseDate.setMinutes(baseDate.getMinutes() + 30);
+            }
+        };
+        createSlots(12, 14.5); // crénaux de 12:00 à 14:30
+        createSlots(19, 22.5); // crénaux de 19:00 à 22:30
+        return slots;
     }
 
     function openModal(index) {
@@ -23,7 +29,7 @@ export default function Book() {
 
     function closeModal() {
         setModalIsOpen(false);
-        setAlertMessage(""); // Clear any previous alert messages
+        setAlertMessage("");
     }
 
     function handleReservationModal() {
@@ -50,9 +56,7 @@ export default function Book() {
     }, [reservations]);
 
     function DateRender() {
-        const baseDate = new Date();
-        baseDate.setHours(11, 0, 0, 0); // Assuming reservations start at 11:00 AM
-        const agenda = generateDates(baseDate, placesAvailable, 20); // Generate 20-minute increments
+        const agenda = generateDates(); // génère les crénaux pour les deux plages horaires
 
         const list = agenda.map((date, index) => (
             <button
@@ -60,7 +64,7 @@ export default function Book() {
                 id={`slot-${index}`}
                 onClick={() => openModal(index)}
                 style={{
-                    backgroundColor: reservations.some(res => res.index === index) ? 'grey' : 'white',
+                    backgroundColor: reservations.some(res => res.index === index) ? 'black' : 'transparent',
                     pointerEvents: reservations.some(res => res.index === index) ? 'none' : 'auto',
                 }}
             >
@@ -109,7 +113,7 @@ export default function Book() {
             {modalIsOpen && renderModal()}
             <ul>
                 {reservations.map(res => (
-                    <li key={res.index}>
+                    <li key={res.index} id="reserved-slot">
                         Reserved slot {res.index + 1}: {res.name} for {res.people} people
                     </li>
                 ))}
@@ -117,30 +121,3 @@ export default function Book() {
         </div>
     );
 }
-
-const modalStyles = {
-    modal: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-        visibility: 'visible',
-        opacity: 1,
-        transition: 'visibility 0s, opacity 0.5s linear',
-    },
-    modalContent: {
-        gap: '20px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        backgroundColor: 'white',
-        padding: '1Opx 40px 30px 40px',
-        borderRadius: '5px',
-        textAlign: 'center',
-    },
-};
